@@ -1,0 +1,27 @@
+.service-profile img{
+width: 90px;
+}
+.service-profile{
+    display: flex;
+    margin: 40px ;
+}
+.service-profile-text{
+    text-align: left;
+    margin-left: 10px;
+}
+.service-profile-text button{
+    padding: 7px 15px;
+    border-radius: 5px;
+    border: 1px solid var(--dark-blue);
+    color: var(--dark-blue);
+    font-size: var(--font-2-s);
+    font-weight: var(--title-2-w);
+    background-color: #fff;
+    margin-top: 5px;
+    cursor: pointer;
+    transition: .5s all ease;
+}
+.service-profile-text button:hover{
+    background-color: var(--dark-blue);
+    color: #fff;
+}

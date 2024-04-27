@@ -1,0 +1,54 @@
+.outside-services-head {
+  background-image: url(../../assets/titlebar.webp);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 80px 40px;
+  position: relative;
+}
+.services-page-head {
+  position: absolute;
+  z-index: 9;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(24, 35, 51, 0.83);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.services-page-head h1 {
+  color: #fff;
+  font-size: var(--title-2-s);
+  font-weight: var(--title-1-w);
+  
+}
+.service-text {
+  display: flex;
+  align-items: center;
+}
+.service-title-line {
+  background-color: var(--light-yellow);
+  height: 50px;
+  width: 5px;
+  margin-right: 10px;
+  margin-left: 50px;
+}
+.services-page {
+  text-align: center;
+}
+.services-body{
+    padding: 0 80px;
+}
+.form-select{
+    padding: 5px 15px;
+    border: 1px solid var(--dark-blue);
+    cursor: pointer;
+    font-size: var(--font-2-s);
+}
+.form-select:focus{
+    outline: none;
+    border: 1px solid var(--light-yellow);
+}
+

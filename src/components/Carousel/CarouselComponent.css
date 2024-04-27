@@ -1,0 +1,36 @@
+
+.each-slide-effect > div {
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    height: 88vh;
+    font-family: var(--primary-font);
+  }
+  
+  .each-slide-effect p {
+    padding: 20px;
+    font-size: 20px;
+  }
+  .each-slide-effect .slider-text{
+    text-align: left;
+    width: 100%;
+  }
+  .each-slide-effect .slider-text h1{
+    font-size: var(--title-1-s);
+    font-weight: var(--title-1-w);
+    color: #fff;
+    padding-left: 50px;
+    letter-spacing: 5px;
+    animation-duration: 3s;
+    
+  }
+  .each-slide-effect .slider-text span{
+    color: var(--light-yellow);
+  }
+  .each-slide-effect .slider-text #second-line{
+    animation-duration: 1s;
+  }
+  #head-2{
+    text-align: right;
+    margin-right: 50px;
+  }

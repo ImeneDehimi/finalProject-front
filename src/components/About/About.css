@@ -1,0 +1,31 @@
+.about{
+margin: 45px 35px;
+display: flex;
+gap: 50px;
+font-family: var(--secondary-font);
+}
+.about-left img{
+  width: 450px;
+  height: 540px;
+}
+.about-right .title{
+    display: flex;
+    align-items: center;
+    margin: 50px 20px 60px 0;
+}
+.about-right .title h2{
+    font-size: var(--title-2-s);
+    font-weight: var(--title-1-w);
+    color: var(--dark-blue);
+}
+.about-right .title .line{
+height: 70px;
+width: 5px;
+background-color: var(--dark-yellow);
+margin-right: 10px;
+}
+.about-right p{
+    font-size: var(--font-2-s);
+    line-height: 30px;
+    color: var(--dark-grey);
+}

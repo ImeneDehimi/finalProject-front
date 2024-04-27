@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: var(--secondary-font);
+}
+:root{
+    --primary-font: "Oswald", sans-serif;
+    --secondary-font: "Open Sans", sans-serif;
+    --title-1-s:70px;
+    --title-1-w:700;
+    --title-2-s:40px;
+    --title-2-w:500;
+    --font-1-s:12px;
+    --font-2-s:16px;
+    --font-3-s:24px;
+    --dark-blue:#00203A;
+    --dark-yellow:#FB9C36;
+    --light-yellow:#FF9E2A;
+    --grey:#C0C0C0;
+    --transition-1: .3s;
+    --dark-grey: #656565;
+    --background: #182333;
+}

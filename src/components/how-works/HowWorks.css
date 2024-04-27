@@ -1,0 +1,30 @@
+#how-head {
+    font-size: var(--title-2-s);
+    color: var(--dark-blue);
+    margin: 10px 0;
+  }
+  .how-works img {
+    width: 120px;
+  }
+  .how-works {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 20px 0;
+  }
+  .how {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 250px;
+  }
+  .how h3 {
+    font-size: var(--font-3-s);
+    color: var(--light-yellow);
+  }
+  .how p {
+    font-weight: var(--title-2-w);
+    color: var(--dark-blue);
+  }
