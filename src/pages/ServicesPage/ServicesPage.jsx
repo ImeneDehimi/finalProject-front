@@ -1,9 +1,20 @@
+import { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Service from "../../components/Service/Service";
 import HowWorks from "../../components/how-works/HowWorks";
 import "./ServicesPage.css";
+import axios from "axios";
 
 const ServicesPage = () => {
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/v1/user")
+      .then((res) =>{ setUsers(res.data)
+      console.log(res.data);})
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <>
       <Navbar></Navbar>
@@ -25,7 +36,11 @@ const ServicesPage = () => {
             <option value="3">Oran</option>
             <option value="3">Batna</option>
           </select>
-          <Service></Service>
+          <div className="services-services">
+          {users.map((user)=>(
+              <Service key={user._id} user={user}></Service>
+            ))}
+          </div>
         </div>
       </div>
     </>

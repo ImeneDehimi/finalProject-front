@@ -107,6 +107,7 @@ const Upload = () => {
             </div>
           ))}
         </div>
+        <button className="upload-button">Submit</button>
       </div>
     </div>
   );

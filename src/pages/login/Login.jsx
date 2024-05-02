@@ -1,19 +1,24 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaLock, FaUser } from "react-icons/fa";
 import { BiErrorCircle } from "react-icons/bi";
 import "./Login.css";
-import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { updateFormData } from "../../redux/slices/formSlice";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import {login} from "../../redux/slices/authSlice"
+
 
 const Login = () => {
+
+const dispatch = useDispatch()
+const navigate = useNavigate()
+
   // Forms Handling & Validation
 
   const schema = yup.object().shape({
     userName: yup.string().required("UserName is required"),
-    email: yup.string().required("email is required").email(),
     password: yup.string().required("password is required").min(4).max(20),
   });
   const {
@@ -22,20 +27,24 @@ const Login = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = () => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const username = formData.get("userName");
+    const password = formData.get("password");
+
+    axios
+      .post("http://localhost:5000/v1/auth/login", {
+        username,
+        password,
+
+      })
+      .then((res)=>{dispatch(login(res.data));
+      localStorage.setItem("token", res.data.token);
+    navigate("/")})
+      .catch((err) => alert(err.message));
   };
 
-  // storing data in redux
-
-  const dispatch = useDispatch();
-  const formData = useSelector((state) => state.form.formData);
-
-  const handleInputChange = (e) => {
-    const { username, value } = e.target;
-    console.log(e.target);
-    dispatch(updateFormData({ field: username, value }));
-  };
   return (
     <div className="login">
       <form className="login-wrapper" onSubmit={handleSubmit(onSubmit)}>
@@ -44,9 +53,8 @@ const Login = () => {
           <input
             type="text"
             placeholder="UserName"
-            value={formData.username}
-            onChange={handleInputChange}
             {...register("userName")}
+            name="userName"
           />
           <FaUser className="login-icon" />
           {errors.userName ? (
@@ -62,9 +70,8 @@ const Login = () => {
           <input
             type="password"
             placeholder="Password"
-            value={formData.email}
-            onChange={handleInputChange}
             {...register("password")}
+            name="password"
           />
           <FaLock className="login-icon" />
           {errors.password ? (
@@ -85,7 +92,7 @@ const Login = () => {
         <button type="submit">Login</button>
         <div className="register-link">
           <p>
-            Don't have an account <Link to="/register">Register</Link>
+          Don&apos;t have an account <Link to="/register">Register</Link>
           </p>
         </div>
       </form>

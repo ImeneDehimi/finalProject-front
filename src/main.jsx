@@ -14,6 +14,7 @@ import CreateProfile from './pages/CreateProfile/CreateProfile.jsx';
 import Upload from './components/Upload/Upload.jsx';
 import ServicesPage from './pages/ServicesPage/ServicesPage.jsx';
 import Profile from './pages/Profile/Profile.jsx';
+import ServiceProvider from './pages/ServiceProvider/ServiceProvider.jsx';
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
     element: <Register/>,
   },
   {
-    path: "/createprofile",
+    path: "/register/createprofile",
     element: <CreateProfile/>,
   },
   {
@@ -43,6 +44,14 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: <Profile/>,
+  },
+  {
+    path: "/uploadimages",
+    element: <Upload/>,
+  },
+  {
+    path: "/serviceprovider",
+    element: <ServiceProvider/>,
   }
 ]);
 

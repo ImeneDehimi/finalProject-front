@@ -39,7 +39,7 @@
   text-align: center;
 }
 .services-body{
-    padding: 0 80px;
+    padding: 0 60px;
 }
 .form-select{
     padding: 5px 15px;
@@ -50,5 +50,10 @@
 .form-select:focus{
     outline: none;
     border: 1px solid var(--light-yellow);
+}
+.services-services{
+  display: grid;
+grid-template-columns: repeat(2, 1fr);
+
 }
 

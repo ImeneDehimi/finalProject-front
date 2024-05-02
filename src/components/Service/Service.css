@@ -3,25 +3,39 @@ width: 90px;
 }
 .service-profile{
     display: flex;
-    margin: 40px ;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 20px;
 }
 .service-profile-text{
     text-align: left;
-    margin-left: 10px;
+    margin: 0 40px 0 30px;
 }
-.service-profile-text button{
+.service-profile-text h3{
+    font-size: var(--font-3-s);
+    font-weight: var(--title-1-w);
+}
+.service-profile-text p{
+    font-size: 14px;
+    color: var(--dark-grey);
+}
+.service-profile button{
     padding: 7px 15px;
     border-radius: 5px;
     border: 1px solid var(--dark-blue);
-    color: var(--dark-blue);
-    font-size: var(--font-2-s);
-    font-weight: var(--title-2-w);
     background-color: #fff;
     margin-top: 5px;
     cursor: pointer;
     transition: .5s all ease;
+    color: var(--dark-blue);
+    font-size: var(--font-2-s);
+    font-weight: var(--title-2-w);
 }
-.service-profile-text button:hover{
+.service-profile button a{
+    text-decoration: none;
+}
+
+.service-profile button:hover{
     background-color: var(--dark-blue);
     color: #fff;
 }

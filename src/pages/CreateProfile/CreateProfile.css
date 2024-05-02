@@ -8,7 +8,7 @@ background-color: #e8e8e8;
 .create-profile form{
     display: flex;
     flex-direction: column;
-    width: 600px;
+    width: 750px;
     background-color: #fff;
     border-radius: 5px;
     padding: 5px 30px;
@@ -33,7 +33,7 @@ justify-content: center;
     color: var(--dark-blue);
     font-family: var(--secondary-font);
 }
-.wilaya-input, .create-profile textarea{
+.wilaya-input, .create-profile textarea, #selectbox1{
     border-radius: 3px;
     border: 1px solid #bfbfbf;
     width:  89%;
@@ -42,7 +42,10 @@ justify-content: center;
     font-size: var(--font-2-s);
     color: var(--dark-blue);
 }
-.wilaya-input:focus, .create-profile textarea:focus{
+#selectbox1{
+    width: 92%;
+}
+.wilaya-input:focus, .create-profile textarea:focus ,#selectbox1:focus{
     outline: none;
     border: 1px solid var(--light-yellow);
 }
@@ -67,6 +70,7 @@ justify-content: center;
     border: none;
     border: 2px solid var(--light-yellow);
 }
+
 
 
 
