@@ -1,0 +1,28 @@
+.messages{
+    display: flex;
+    padding-top: 20px;
+    height: 100vh;
+}
+.messagelist{
+    width: 25%;
+text-align: center;
+}
+.messagelist
+.chat-box{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.chat-box img{
+    width: 50px;
+    border-radius: 50%;
+}
+.chat{
+    position: relative;
+}
+.chat-input{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}

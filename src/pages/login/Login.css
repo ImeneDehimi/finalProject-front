@@ -5,6 +5,7 @@
   height: 100vh;
   background-color: #e8e8e8;
   font-family: var(--secondary-font);
+  overflow: hidden;
 }
 .login-wrapper {
   width: 360px;
@@ -18,7 +19,7 @@
   font-size: 32px;
   color: var(--dark-blue);
   text-align: center;
-  margin: 15px 0;
+  margin: 10px 0;
 }
 .login-wrapper .input-box {
   width: 100%;

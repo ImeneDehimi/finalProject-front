@@ -1,9 +1,10 @@
 .footer{
     display: flex;
     justify-content: space-evenly;
-    margin: 30px 0;
+    padding: 40px 0;
     font-family: var(--secondary-font);
     color: var(--dark-blue);
+    border-top: 2px solid var(--dark-blue);
 }
 .footer-about img{
     width: 150px;

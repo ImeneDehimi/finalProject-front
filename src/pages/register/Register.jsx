@@ -11,10 +11,17 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { registration } from "../../redux/slices/authSlice";
 import { ToastContainer, toast } from "react-toastify";
+import "./Register.css"
 
 const Register = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  // upload profile picture
+  const [profileImg, setProfileImg] = useState("")
+  const handleUpload = (e) =>{
+      setProfileImg(URL.createObjectURL(e.target.files[0]))
+
+  }
   // handling chackbox
   const [checkbox1Checked, setCheckbox1Checked] = useState(true);
   const [checkbox2Checked, setCheckbox2Checked] = useState(false);
@@ -33,7 +40,7 @@ const Register = () => {
   };
   // Forms Handling & Validation
   const schema = yup.object().shape({
-    userName: yup.string().required("UserName is required"),
+    username: yup.string().required("Username is required"),
     email: yup.string().required("email is required").email(),
     password: yup.string().required("password is required").min(8).max(20),
     role: yup.array().required("role is required").min(1,'select a role'),
@@ -45,25 +52,23 @@ const Register = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  
   const onSubmit = () => {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const username = formData.get("userName");
+    const username = formData.get("username");
     const password = formData.get("password");
     const email = formData.get("email");
     const role = formData.get("role");
+    const image = profileImg
+    formData.append("image",image)
+    console.log(formData);
 if(role == "user"){
   axios
-  .post("http://localhost:5000/v1/auth/register", {
-    email,
-    username,
-    password,
-    role,
-  })
+  .post("http://localhost:5000/v1/auth/register", formData)
   .then((res)=>{
     dispatch(registration(res.data))
     toast.success("registration successful!");
+    navigate(`/`)
   })
   .catch((err) => {if(err.response){
     if(err.response.status == 400)
@@ -73,15 +78,12 @@ if(role == "user"){
   }});
 }else if(role== "serviceProvider"){
   axios
-  .post("http://localhost:5000/v1/auth/register", {
-    email,
-    username,
-    password,
-    role,
-  })
+  .post("http://localhost:5000/v1/auth/register", formData)
   .then((res)=>{
     dispatch(registration(res.data))
-    navigate("./createprofile")
+    const id = res.data._id
+    console.log(res.data);
+    navigate(`/createprofile/${id}`)
   })
   .catch((err) =>{ 
     if(err.response){
@@ -92,7 +94,6 @@ if(role == "user"){
     }
     });
 }
-
   };
 
   return (
@@ -100,18 +101,24 @@ if(role == "user"){
       <ToastContainer />
       <form className="login-wrapper" onSubmit={handleSubmit(onSubmit)}>
         <h1>Create an account</h1>
+
+        <div className="pfp">
+          <input type="file" name="image"  onChange={handleUpload} id="actual-btn" hidden/>
+          <img src={profileImg} className="profile-img" alt="pfp"/>
+          <label htmlFor="actual-btn" className="upload-btn">Add profile pic</label>
+        </div>
         <div className="input-box">
           <input
             type="text"
-            placeholder="Username"
-            {...register("userName")}
-            name="userName"
+            placeholder="UserName"
+            {...register("username")}
+            name="username"
           />
           <FaUser className="login-icon" />
-          {errors.userName ? (
+          {errors.username ? (
             <span className="signin-error">
               <BiErrorCircle />
-              {errors.userName?.message}
+              {errors.username?.message}
             </span>
           ) : (
             <></>

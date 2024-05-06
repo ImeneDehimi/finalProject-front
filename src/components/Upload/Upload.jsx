@@ -1,11 +1,18 @@
 import "./Upload.css";
 import file from "../../assets/File.webp";
 import { useRef, useState } from "react";
+import axios from "axios";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 
 const Upload = () => {
+
+  // upload images
   const [images, setImages] = useState([]);
+  const [profileImages, setProfileImages] = useState([])
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef(null);
+  const {profileId} = useParams();
+  const navigate = useNavigate()
 
   function selectFiles() {
     fileInputRef.current.click();
@@ -14,6 +21,10 @@ const Upload = () => {
     const files = event.target.files;
     if (files.length == 0) return;
     for (let i = 0; i < files.length; i++) {
+      setProfileImages((prevImages) => [
+        ...prevImages,files[i]
+       
+      ]);
       if (files[i].type.split("/")[0] !== "image") continue;
       if (!images.some((e) => e.name == file[i].name)) {
         setImages((prevImages) => [
@@ -43,6 +54,10 @@ const Upload = () => {
     setIsDragging(false);
     const files = event.dataTransfer.files;
     for (let i = 0; i < files.length; i++) {
+      setProfileImages((prevImages) => [
+        ...prevImages,files[i]
+       
+      ]);
       if (files[i].type.split("/")[0] !== "image") continue;
       if (!images.some((e) => e.name == file[i].name)) {
         setImages((prevImages) => [
@@ -54,6 +69,22 @@ const Upload = () => {
         ]);
       }
     }
+  }
+
+  // update profile
+
+  const upload =()=>{
+    let formData=new FormData()
+    console.log(profileImages);
+
+    profileImages.forEach((file)=>{
+      formData.append("images",file)
+    })
+    axios.put(`http://localhost:5000/v1/profile/${profileId}`,formData)
+    .then((res)=>{console.log(res.data)
+      navigate(`/profile/${profileId}`)
+    })
+    .catch((err) => console.log(err))
   }
 
   return (
@@ -107,7 +138,7 @@ const Upload = () => {
             </div>
           ))}
         </div>
-        <button className="upload-button">Submit</button>
+        <button className="upload-button" onClick={upload}>Submit</button>
       </div>
     </div>
   );

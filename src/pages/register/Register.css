@@ -1,0 +1,25 @@
+.register-picture{
+    display: flex;
+}
+.upload-btn {
+    background-color: #fff;
+    color: var(--dark-blue);
+    border: 1px solid var(--dark-blue);
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight:var(--title-2-w);
+    font-size: var(--font-1-s);
+  }
+  .pfp{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    margin-bottom: 5px;
+    gap: 30px;
+  }
+  .profile-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }

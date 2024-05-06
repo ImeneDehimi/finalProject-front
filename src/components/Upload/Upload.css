@@ -77,8 +77,7 @@
     position: relative;
   }
   .uploaded-img .delete {
-    position: absolute;
-    top: -2px;
+float: right;
     font-size: 30px;
     cursor: pointer;
     color: var(--light-yellow);

@@ -22,7 +22,6 @@
     padding-left: 50px;
     letter-spacing: 5px;
     animation-duration: 3s;
-    
   }
   .each-slide-effect .slider-text span{
     color: var(--light-yellow);
@@ -33,4 +32,9 @@
   #head-2{
     text-align: right;
     margin-right: 50px;
+  }
+
+ 
+  .darkmode--activated .images-wrap{
+    mix-blend-mode: difference;
   }

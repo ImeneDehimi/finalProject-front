@@ -5,14 +5,18 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { useState } from "react";
-import user from "../../assets/avatar.webp"
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { useDispatch, useSelector } from "react-redux";
 import {logout} from "../../redux/slices/authSlice"
+import { AiFillMessage } from "react-icons/ai";
+import avatar from "../../assets/avatar.webp";
+
 
 const Navbar = () => {
   const dispatch = useDispatch()
 const isAuthenticated = useSelector((state)=>state.auth.isAuthenticated)
+// const user = useSelector((state)=>state.auth.user.user)
+// console.log(user);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -37,16 +41,16 @@ const isAuthenticated = useSelector((state)=>state.auth.isAuthenticated)
               <AnchorLink href="#services">services</AnchorLink>
               <ul className="dropdown">
                 <li className="dropdown-item">
-                  <Link to="/services">electrician</Link>
+                  <Link to="/electricians">electrician</Link>
                 </li>
                 <li className="dropdown-item">
-                  <Link to="">plumber</Link>
+                  <Link to="/plumbers">plumber</Link>
                 </li>
                 <li className="dropdown-item">
-                  <Link to="">painter</Link>
+                  <Link to="/painters">painter</Link>
                 </li>
                 <li className="dropdown-item">
-                  <Link to="">builder</Link>
+                  <Link to="/builders">builder</Link>
                 </li>
               </ul>
             </li>
@@ -55,22 +59,26 @@ const isAuthenticated = useSelector((state)=>state.auth.isAuthenticated)
             </li>
           </div>
           <div>
-            <img src={logo} alt="" />
+            <Link to="/"><img src={logo} alt="" /></Link>
           </div>
-          <div>
-            {!isAuthenticated ? <><Link to="/login">
+          {/* <div>
+            {!isAuthenticated ? 
+            <><Link to="/login">
               <button>Login</button>
             </Link>
             <Link to="/register">
               <button>create an account</button>
-            </Link></> : <><Button
+            </Link></> : 
+            <>
+            <Link to="/messages"><AiFillMessage className="inbox-icon"/></Link>
+            <Button
               id="basic-button"
               aria-controls={open ? "basic-menu" : undefined}
               aria-haspopup="true"
               aria-expanded={open ? "true" : undefined}
               onClick={handleClick}
             >
-              <img src={user} alt="" id="nav-user" />
+              <img src={user.image ? user.image : avatar} alt="" id="nav-user" />
             </Button>
             <Menu
               id="basic-menu"
@@ -81,12 +89,10 @@ const isAuthenticated = useSelector((state)=>state.auth.isAuthenticated)
                 "aria-labelledby": "basic-button",
               }}
             >
-              <MenuItem onClick={handleClose}><Link to="/profile" style={{color:"#00203A",textDecoration:"none"}}>Profile</Link></MenuItem>
+              <MenuItem onClick={handleClose}><Link to={`/profile/${user._id}`} style={{color:"#00203A",textDecoration:"none"}}>Profile</Link></MenuItem>
               <MenuItem onClick={()=>{handleClose;dispatch(logout())}} >Logout</MenuItem>
             </Menu></>}
-            
-            
-          </div>
+          </div> */}
         </ul>
       </nav>
     </>

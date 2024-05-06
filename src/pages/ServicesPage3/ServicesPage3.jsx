@@ -2,19 +2,19 @@ import { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Service from "../../components/Service/Service";
 import HowWorks from "../../components/how-works/HowWorks";
-import "./ServicesPage.css";
+import "./../ServicesPage/ServicesPage.css";
 import axios from "axios";
 import Footer from "../../components/Footer/Footer";
 
-const ServicesPage = () => {
+const ServicesPage3 = () => {
   const [profiles, setProfiles] = useState([]);
   const [filteredProfiles, setFilteredProfiles] = useState([]);
-  const category = "electrician"
+  const category = "painter"
+
   useEffect(() => {
     axios
       .get(`http://localhost:5000/v1/profile/category/${category}`)
-      .then((res) =>{ 
-        setProfiles(res.data)
+      .then((res) =>{ setProfiles(res.data)
         setFilteredProfiles(res.data)
       console.log(res.data)})
       .catch((err) => console.log(err));
@@ -38,7 +38,7 @@ const ServicesPage = () => {
           <div className="services-page-head">
             <div className="service-text">
               <span className="service-title-line"></span>
-              <h1>Electricians</h1>
+              <h1>Painters</h1>
             </div>
           </div>
         </div>
@@ -63,4 +63,4 @@ const ServicesPage = () => {
   );
 };
 
-export default ServicesPage;
+export default ServicesPage3;

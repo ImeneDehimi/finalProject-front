@@ -5,3 +5,9 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+.darkmode-layer, .darkmode-toggle {
+    z-index: 99;
+  }
+  .darkmode--activated img {
+    mix-blend-mode: difference;
+  }

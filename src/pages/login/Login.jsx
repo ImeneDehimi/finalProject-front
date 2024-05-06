@@ -8,6 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import {login} from "../../redux/slices/authSlice"
+import { ToastContainer, toast } from "react-toastify";
 
 
 const Login = () => {
@@ -42,11 +43,14 @@ const navigate = useNavigate()
       .then((res)=>{dispatch(login(res.data));
       localStorage.setItem("token", res.data.token);
     navigate("/")})
-      .catch((err) => alert(err.message));
+      .catch((err) => {
+        toast.error(err.message);
+      });
   };
 
   return (
     <div className="login">
+            <ToastContainer />
       <form className="login-wrapper" onSubmit={handleSubmit(onSubmit)}>
         <h1>Welcome back</h1>
         <div className="input-box">

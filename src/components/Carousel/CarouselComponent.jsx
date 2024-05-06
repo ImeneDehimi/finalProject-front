@@ -24,8 +24,8 @@ const CarouselComponent = () => {
   return (
 
       <Slide {...properties}>
-        <div className="each-slide-effect">
-                <div style={{ 'backgroundImage': `url(${images[1]})` }}>
+        <div className="each-slide-effect" >
+                <div style={{ 'backgroundImage': `url(${images[1]}) ` }}>
                 <div className="slider-text">
                 <h1 className="animate__slideInDown">Best <span>Handyman</span></h1>
                 <h1 id="second-line" className="animate__slideInDown">Services Provider</h1> 
@@ -33,7 +33,7 @@ const CarouselComponent = () => {
                 </div>
             </div>
             <div className="each-slide-effect">
-                <div style={{ 'backgroundImage': `url(${images[0]})` }}>
+                <div style={{ 'backgroundImage': `url(${images[0]})`}}>
                     <div className="slider-text">
                     <h1 className="animate__slideInDown" id="head-2">The <span>Solution</span> <br /> For All Your Home <br />Repair Needs.</h1>
                     </div>

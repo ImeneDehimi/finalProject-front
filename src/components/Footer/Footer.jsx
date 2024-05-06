@@ -34,6 +34,7 @@ const Footer = () => {
         <a href="#"><box-icon name='whatsapp-square' type='logo' color='#00203a' size='md'></box-icon></a>
         <a href="#"><box-icon name='pinterest' type='logo' color='#00203a' size='md'></box-icon></a>
         </div>
+
     </footer>
   );
 };

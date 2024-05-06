@@ -1,0 +1,68 @@
+.updateprofile {
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  gap: 20px;
+  overflow-x: hidden;
+}
+.updateprofile form {
+  display: flex;
+  flex-direction: column;
+}
+.updateprofile form input,
+.updateprofile form select,
+.updateprofile form textarea {
+  padding: 10px;
+  margin: 10px;
+  width: 400px;
+  border: 1px solid var(--grey);
+  font-size: var(--font-2-s);
+  color: var(--dark-blue);
+}
+.updateprofile form select{
+    width: 420px;
+}
+.updateprofile form textarea{
+    resize: none;
+}
+.updateprofile form input:focus,
+.updateprofile form select:focus,
+.updateprofile form textarea:focus{
+    
+    outline: none;
+    border: 1px solid var(--light-yellow);
+}
+.edit-upload-wrapper{
+    width: 500px;
+}
+.edit-upload-wrapper h3{
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: var(--dark-blue);
+}
+.upload-delete{
+float: right;
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--light-yellow);
+}
+.update-btn{
+    width: 200px;
+    padding: 10px;
+    margin-left: 10px;
+    font-size: var(--font-2-s);
+    font-weight: var(--title-1-w);
+    background-color: var(--dark-blue);
+    color: #fff;
+    border-radius: 5px;
+    border: 1px solid var(--dark-blue);
+    cursor: pointer;
+    transition:  all .3s ease-in-out;
+}
+.update-btn:hover{
+    color: var(--dark-blue);
+    border: 1px solid var(--dark-blue);
+    background-color: #fff;
+
+}

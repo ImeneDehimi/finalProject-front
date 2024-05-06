@@ -1,22 +1,17 @@
+import "./Messages.css";
+import image from '../../assets/electrician.webp'
 import { Button, Menu, MenuItem } from "@mui/material";
-import "./Profile.css";
-import { useEffect, useState } from "react";
-import logo from "../../assets/logo2.webp";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { logout } from "../../redux/slices/authSlice";
-import { useDispatch } from "react-redux";
-import ProfileInfo from "../../components/ProfileInfo/ProfileInfo";
-import UpdateProfile from "../../components/UpdateProfile/UpdateProfile";
+import { Link, useNavigate } from "react-router-dom";
 import { AiFillMessage } from "react-icons/ai";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import logo from "../../assets/logo2.webp";
+import user from "../../assets/avatar.webp";
+import { logout } from "../../redux/slices/authSlice";
+import { useState } from "react";
 
-const Profile = () => {
+const Messages = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { ID } = useParams();
-  console.log(ID);
-  const [profile, setProfile] = useState({})
-
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -25,24 +20,12 @@ const Profile = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const [edit , setEdit] = useState(false)
- 
-  useEffect(() => {
-    axios
-      .get(`http://localhost:5000/v1/profile/${ID}`)
-      .then((res) => {
-        console.log(res.data);
-        setProfile(res?.data)
-      })
-      .catch((err) => console.log(err));
-  }, []);
- 
   return (
-    <>
-      <nav className="navbar">
+    <>        
+    <nav className="navbar">
         <ul>
           <div style={{ marginLeft: "30px" }}>
-            <Link to="/"><img src={logo} alt="" /></Link>
+            <img src={logo} alt="" />
           </div>
           <div style={{ marginRight: "30px" }}>
           <Link to="/messages"><AiFillMessage className="inbox-icon"/></Link>
@@ -54,7 +37,7 @@ const Profile = () => {
               aria-expanded={open ? "true" : undefined}
               onClick={handleClick}
             >
-              <img src={logo} alt="" id="nav-user" />
+              <img src={user} alt="" id="nav-user" />
             </Button>
             <Menu
               id="basic-menu"
@@ -87,19 +70,28 @@ const Profile = () => {
           </div>
         </ul>
       </nav>
-      <hr />
-      <div className="profile">
-      <div className='sidebar'>
-            <h1>Profile</h1>
-            <hr />
-                <button onClick={()=>setEdit(!edit)}>Personal info</button>
-                <hr />
-                <button onClick={()=>setEdit(!edit)}>Edit Profile</button>
+    <div className="messages">
+      <div className="messagelist">
+        <h1>Chat</h1>
+        <hr />
+        <div className="chat-box">
+          <img src={image} alt="" />
+          <h3>name</h3>
+          
         </div>
-        {edit ? <UpdateProfile profile={profile}/> : <ProfileInfo profile={profile}></ProfileInfo>}
       </div>
+      <hr />
+      <div className="chat">
+        <div>
+        Lorem ipsum dolor sit amet, consect
+        </div>
+        <div className="chat-input">
+          <input type="text" placeholder="Message"/>
+        </div>
+      </div>
+    </div>
     </>
   );
 };
 
-export default Profile;
+export default Messages;

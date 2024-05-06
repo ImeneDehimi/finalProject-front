@@ -5,24 +5,29 @@ import Stack from "@mui/material/Stack";
 import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
-const Service = ({user}) => {
-
+const Service = ({profile}) => {
+ // eslint-disable-next-line react/prop-types
+ const {user, category, wilaya, _id} = profile
+ // eslint-disable-next-line react/prop-types
+ const {image, username} = user
+ 
+console.log(profile);
   return (
     <>
       <div className="service-profile">
         <div>
-          <img src={avatar} alt="" />
+          <img src={image ? image : avatar} alt="" />
         </div>
         <div className="service-profile-text">
           <Stack spacing={1}>
             <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
           </Stack>
-          <h3>{user.username}</h3>
-          <p>Electrician</p>
-          <p>Alger</p>
+          <h3>{username}</h3>
+          <p>{category}</p>
+          <p>{wilaya}</p>
         </div>
         <div>
-        <Link to="/serviceprovider"><button>View profile</button></Link>
+        <Link to={`/serviceprovider/${_id}`}><button>View profile</button></Link>
           </div>
       </div>
     </>

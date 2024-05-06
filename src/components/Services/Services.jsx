@@ -26,7 +26,7 @@ const Services = () => {
           </span>
           <div className="outside-text">
             <div className="text">
-              <h3><Link>Painter</Link></h3>
+              <h3><Link to="/painters">Painter</Link></h3>
               <div className="line"></div>
             </div>
           </div>
@@ -37,7 +37,7 @@ const Services = () => {
           </span>
           <div className="outside-text">
             <div className="text">
-              <h3><Link>Plumber</Link></h3>
+              <h3><Link to="/plumbers">Plumber</Link></h3>
               <div className="line"></div>
             </div>
           </div>
@@ -48,7 +48,7 @@ const Services = () => {
           </span>
           <div className="outside-text">
             <div className="text">
-              <h3><Link to="/services">Electrician</Link></h3>
+              <h3><Link to="/electricians">Electrician</Link></h3>
               <div className="line"></div>
             </div>
           </div>
@@ -59,7 +59,7 @@ const Services = () => {
           </span>
           <div className="outside-text">
             <div className="text">
-              <h3><Link>Builder</Link></h3>
+              <h3><Link to="/builders">Builder</Link></h3>
               <div className="line"></div>
             </div>
           </div>

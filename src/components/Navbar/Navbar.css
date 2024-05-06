@@ -3,7 +3,7 @@
   position: -webkit-sticky;
   top: 0;
   background-color: #fff;
-  z-index: 99;
+  z-index: 10;
 }
 .navbar ul {
   display: flex;
@@ -85,4 +85,10 @@
 .has-dropdown:focus-within .dropdown {
   opacity: 1;
   pointer-events: auto;
+}
+.inbox-icon{
+  color: var(--dark-blue);
+  font-size: 28px;
+  cursor: pointer;
+  padding-top: 7px;
 }

@@ -20,6 +20,7 @@
     "animate.css": "^4.1.1",
     "axios": "^1.6.8",
     "boxicons": "^2.1.4",
+    "darkmode-js": "^1.5.7",
     "dayjs": "^1.11.10",
     "react": "^18.2.0",
     "react-anchor-link-smooth-scroll": "^1.0.12",
