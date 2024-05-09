@@ -44,7 +44,7 @@ const router = createBrowserRouter([
     element: <CreateProfile/>,
   },
   {
-    path: "/upload/:profileId",
+    path: "/upload/:ID",
     element: <Upload/>,
   },
   {

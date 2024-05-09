@@ -1,0 +1,15 @@
+
+.comment img{
+    width: 60px;
+    margin-right: 15px;
+}
+.comment-user{
+display: flex;
+align-items: center;
+margin-bottom: 15px;
+}
+.comment-user h4{
+    font-size: var(--font-2-s);
+    font-weight: var(--title-2-w);
+    margin-bottom: 5px;
+}

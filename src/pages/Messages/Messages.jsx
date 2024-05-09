@@ -22,7 +22,7 @@ const Messages = () => {
   };
   return (
     <>        
-    <nav className="navbar">
+    <nav className="navbar navbar-messages">
         <ul>
           <div style={{ marginLeft: "30px" }}>
             <img src={logo} alt="" />
@@ -48,28 +48,39 @@ const Messages = () => {
                 "aria-labelledby": "basic-button",
               }}
             >
-              <MenuItem onClick={handleClose}>
-                <Link
-                  to="/profile"
-                  style={{ color: "#00203A", textDecoration: "none" }}
+              {user?.role == 'serviceProvider' ? 
+                    <>
+                    <MenuItem onClick={handleClose}>
+                    <Link
+                      to={`/profile/${user?.profile?._id}`}
+                      style={{ color: "#00203A", textDecoration: "none" }}
+                    >
+                      Profile
+                    </Link>
+                  </MenuItem>
+                  <MenuItem
+                    onClick={() => {
+                      handleClose;
+                      dispatch(logout());
+                    }}
+                  >
+                    Logout
+                  </MenuItem> </>: <>
+                <MenuItem
+                  onClick={() => {
+                    handleClose;
+                    dispatch(logout());
+                    navigate('/')
+                  }}
                 >
-                  Profile
-                </Link>
-              </MenuItem>
-              <MenuItem
-                onClick={() => {
-                  handleClose;
-                  dispatch(logout());
-                  navigate("/");
-                }}
-              >
-                Logout
-              </MenuItem>
+                  Logout
+                </MenuItem></>}
             </Menu>
             
           </div>
         </ul>
       </nav>
+      <hr />
     <div className="messages">
       <div className="messagelist">
         <h1>Chat</h1>
@@ -82,11 +93,11 @@ const Messages = () => {
       </div>
       <hr />
       <div className="chat">
-        <div>
+        <div className="chatchat">
         Lorem ipsum dolor sit amet, consect
         </div>
         <div className="chat-input">
-          <input type="text" placeholder="Message"/>
+          <input type="text" placeholder="Message" />
         </div>
       </div>
     </div>

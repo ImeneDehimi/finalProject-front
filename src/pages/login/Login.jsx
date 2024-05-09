@@ -35,7 +35,7 @@ const navigate = useNavigate()
     const password = formData.get("password");
 
     axios
-      .post("http://localhost:5000/v1/auth/login", {
+      .post(`${import.meta.env.VITE_URL}/auth/login`, {
         username,
         password,
 

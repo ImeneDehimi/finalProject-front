@@ -46,7 +46,7 @@ const CreateProfile = () => {
     const wilaya = formData.get('wilaya')
     const description = formData.get('description')
 
-    axios.post("http://localhost:5000/v1/profile", {
+    axios.post(`${import.meta.env.VITE_URL}/profile`, {
       businesshrs, 
       category, 
       wilaya,

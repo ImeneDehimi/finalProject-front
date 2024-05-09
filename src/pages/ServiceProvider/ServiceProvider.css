@@ -94,11 +94,7 @@ margin-bottom: 13px;
   .comments{
     width: 70%;
   }
-.comment img{
-    width: 60px;
-    margin-right: 15px;
-}
-.comments-top{
+  .comments-top{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -112,15 +108,44 @@ margin-bottom: 13px;
     color: var(--dark-yellow);
     text-decoration: underline;
 }
-.comment-user{
-display: flex;
-align-items: center;
-margin-bottom: 15px;
+.writecomment{
+  resize: none;
+  height: 100px;
+  border: 1px solid var(--dark-blue);
+  border-radius: 5px;
+  margin: 10px 0;
+  padding: 10px;
+  font-size: var(--font-2-s);
+  color: var(--dark-blue);
 }
-.comment-user h4{
-    font-size: var(--font-2-s);
-    font-weight: var(--title-2-w);
-    margin-bottom: 5px;
+.writecomment:focus{
+  outline: none;
+  border: 1px solid var(--dark-yellow);
+}
+.submitmodal{
+  padding: 5px 0;
+  font-size: 14px;
+  font-weight: var(--title-2-w);
+  color: var(--dark-blue);
+  border: 1px solid var(--dark-blue);
+  background-color: #fff;
+  cursor: pointer;
+  transition: all .3s ease;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+.submitmodal:hover{
+  color: var(--dark-yellow);
+  background-color: var(--dark-blue);
+}
+#cancel{
+  position: absolute;
+  top: 3%;
+  right: 2%;
+  cursor: pointer;
+}
+.react-multiple-carousel__arrow{
+  z-index: 2;
 }
 
 .darkmode--activated .react-multi-carousel-track {

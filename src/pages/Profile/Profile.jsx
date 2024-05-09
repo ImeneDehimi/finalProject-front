@@ -2,6 +2,7 @@ import { Button, Menu, MenuItem } from "@mui/material";
 import "./Profile.css";
 import { useEffect, useState } from "react";
 import logo from "../../assets/logo2.webp";
+import avatar from "../../assets/avatar.webp";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { logout } from "../../redux/slices/authSlice";
 import { useDispatch } from "react-redux";
@@ -14,7 +15,6 @@ const Profile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { ID } = useParams();
-  console.log(ID);
   const [profile, setProfile] = useState({})
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -29,7 +29,7 @@ const Profile = () => {
  
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/v1/profile/${ID}`)
+      .get(`${import.meta.env.VITE_URL}/profile/${ID}`)
       .then((res) => {
         console.log(res.data);
         setProfile(res?.data)
@@ -46,7 +46,7 @@ const Profile = () => {
           </div>
           <div style={{ marginRight: "30px" }}>
           <Link to="/messages"><AiFillMessage className="inbox-icon"/></Link>
-            <p id="username">username</p>
+            <p id="username">{profile?.user?.username}</p>
             <Button
               id="basic-button"
               aria-controls={open ? "basic-menu" : undefined}
@@ -54,7 +54,7 @@ const Profile = () => {
               aria-expanded={open ? "true" : undefined}
               onClick={handleClick}
             >
-              <img src={logo} alt="" id="nav-user" />
+              <img src={profile?.user?.image ? profile?.user?.image : avatar} alt="" id="nav-user" />
             </Button>
             <Menu
               id="basic-menu"

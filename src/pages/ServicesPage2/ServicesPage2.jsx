@@ -13,7 +13,7 @@ const ServicesPage2 = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/v1/profile/category/${category}`)
+      .get(`${import.meta.env.VITE_URL}/profile/category/${category}`)
       .then((res) =>{ setProfiles(res.data)
         setFilteredProfiles(res.data)
 

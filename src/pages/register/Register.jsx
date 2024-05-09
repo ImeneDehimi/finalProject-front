@@ -78,7 +78,7 @@ if(role == "user"){
   }});
 }else if(role== "serviceProvider"){
   axios
-  .post("http://localhost:5000/v1/auth/register", formData)
+  .post(`${import.meta.env.VITE_URL}/auth/register`, formData)
   .then((res)=>{
     dispatch(registration(res.data))
     const id = res.data._id

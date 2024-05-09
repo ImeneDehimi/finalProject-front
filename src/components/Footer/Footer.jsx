@@ -18,11 +18,11 @@ const Footer = () => {
         <span ></span>
         <h3>Quick Links</h3>
         </div>
-        <Link>Home</Link>
-        <Link>Electrician</Link>
-        <Link>Plumber</Link>
-        <Link>Painter</Link>
-        <Link>Builder</Link>
+        <Link to="/">Home</Link>
+        <Link to="/electricians">Electrician</Link>
+        <Link to="/plumbers">Plumber</Link>
+        <Link to='/painters'>Painter</Link>
+        <Link to="/builders">Builder</Link>
       </div>
       <div className="socials">
         <div className="links-title">

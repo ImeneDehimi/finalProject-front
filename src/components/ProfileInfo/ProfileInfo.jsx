@@ -1,40 +1,14 @@
+import { useEffect, useState } from 'react';
 import './ProfileInfo.css';
-import painter from "./../../assets/painter.webp";
-import plumber from "./../../assets/plumber.webp";
-import electrician from "./../../assets/electrician.webp";
-import builder from "./../../assets/builder.webp";
 
 
-const ProfileInfo = () => {
-
-  
-    const images = [
-        //First image url
-        {
-          url: electrician,
-        },
-        {
-          url: plumber,
-        },
-        //Second image url
-        {
-          url: builder,
-        },
-        //Third image url
-        {
-          url: painter,
-        },
-        {
-          url: painter,
-        },
-        {
-          url: painter,
-        },
-        {
-          url: painter,
-        },
-      ];
-      
+// eslint-disable-next-line react/prop-types
+const ProfileInfo = ({profile}) => {
+console.log(profile);
+// eslint-disable-next-line react/prop-types
+const {category, businesshrs, description, images, wilaya, user} = profile
+const sliderImages = images
+    
     return (
         <div className="profile-body">
           <h1>Personal information</h1>
@@ -42,24 +16,24 @@ const ProfileInfo = () => {
             <div>
               <div className="profile-info-box">
                 <p>
-                  <span>Name:</span> Michael Morgan
+                  <span>Name:</span> {user?.username}
                 </p>
               </div>
               <div className="profile-info-box">
                 <p>
-                  <span>Email:</span> otcize@nur.bd
+                  <span>Email:</span> {user?.email}
                 </p>
               </div>
             </div>
             <div>
               <div className="profile-info-box">
                 <p>
-                  <span>Profession:</span> Electrician
+                  <span>Profession:</span> {category}
                 </p>
               </div>
               <div className="profile-info-box">
                 <p>
-                  <span>Wilaya:</span> Alger
+                  <span>Wilaya:</span> {wilaya}
                 </p>
               </div>
             </div>
@@ -67,10 +41,7 @@ const ProfileInfo = () => {
               <div className="profile-info-box">
                 <p>
                   <span>Description: </span>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
-                  iure quibusdam, exercitationem praesentium alias odio soluta
-                  amet, nam quisquam a, natus id? Fugiat iure nostrum rem, a
-                  quae vel voluptatem!
+                  {description}
                 </p>
               </div>
               <div className="profile-info-box">
@@ -78,10 +49,10 @@ const ProfileInfo = () => {
                   <span>Images: </span>
                 </p>
                 <div className="info-images">
-                  {images.map((imageUrl, index) => {
+                  {sliderImages?.map((imageUrl, index) => {
                     return (
                       <div className="image" key={index}>
-                        <img src={imageUrl.url} alt="movie" />
+                        <img src={imageUrl} alt="" />
                       </div>
                     );
                   })}

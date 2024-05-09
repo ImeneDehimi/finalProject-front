@@ -8,21 +8,20 @@ import { Link } from "react-router-dom";
 const Service = ({profile}) => {
  // eslint-disable-next-line react/prop-types
  const {user, category, wilaya, _id} = profile
- // eslint-disable-next-line react/prop-types
- const {image, username} = user
+
  
 console.log(profile);
   return (
     <>
       <div className="service-profile">
         <div>
-          <img src={image ? image : avatar} alt="" />
+          <img src={user?.image ? user?.image : avatar} alt="" />
         </div>
         <div className="service-profile-text">
           <Stack spacing={1}>
             <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
           </Stack>
-          <h3>{username}</h3>
+          <h3>{user?.username}</h3>
           <p>{category}</p>
           <p>{wilaya}</p>
         </div>

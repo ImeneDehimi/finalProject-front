@@ -2,7 +2,7 @@ import "./Upload.css";
 import file from "../../assets/File.webp";
 import { useRef, useState } from "react";
 import axios from "axios";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Upload = () => {
 
@@ -11,7 +11,7 @@ const Upload = () => {
   const [profileImages, setProfileImages] = useState([])
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef(null);
-  const {profileId} = useParams();
+  const {ID} = useParams();
   const navigate = useNavigate()
 
   function selectFiles() {
@@ -74,17 +74,21 @@ const Upload = () => {
   // update profile
 
   const upload =()=>{
-    let formData=new FormData()
-    console.log(profileImages);
-
-    profileImages.forEach((file)=>{
-      formData.append("images",file)
-    })
-    axios.put(`http://localhost:5000/v1/profile/${profileId}`,formData)
-    .then((res)=>{console.log(res.data)
-      navigate(`/profile/${profileId}`)
-    })
-    .catch((err) => console.log(err))
+    if (profileImages == []) {
+      navigate(`/profile/${ID}`)
+    }else{
+      let formData=new FormData()
+      console.log(profileImages);
+      profileImages.forEach((file)=>{
+        formData.append("images",file)
+      })
+      axios.put(`${import.meta.env.VITE_URL}/profile/${ID}`,formData)
+      .then((res)=>{console.log(res.data)
+        navigate(`/profile/${ID}`)
+      })
+      .catch((err) => console.log(err))
+    }
+    
   }
 
   return (
