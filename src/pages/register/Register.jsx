@@ -64,7 +64,7 @@ const Register = () => {
     console.log(formData);
 if(role == "user"){
   axios
-  .post("http://localhost:5000/v1/auth/register", formData)
+  .post(`${import.meta.env.VITE_URL}/auth/register`, formData)
   .then((res)=>{
     dispatch(registration(res.data))
     toast.success("registration successful!");

@@ -10,7 +10,7 @@ const Comment = ({comment}) => {
   const [user, setUser] = useState({})
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/v1/user/${userid}`)
+      .get(`${import.meta.env.VITE_URL}/user/${userid}`)
       .then((res) => {
         console.log(res.data);
       setUser(res.data)
