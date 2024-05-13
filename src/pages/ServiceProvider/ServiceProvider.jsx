@@ -50,7 +50,7 @@ const ServiceProvider = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/v1/profile/${Id}`)
+      .get(`${import.meta.env.VITE_URL}/profile/${Id}`)
       .then((res) => {
         console.log(res.data);
         setProfile(res?.data);
