@@ -1,0 +1,70 @@
+.chat{
+    width: 70%;
+    overflow-y: hidden;
+}
+
+.chat-input{
+    position: fixed;
+    bottom: 0;
+    width: 70%;
+    display: flex;
+}
+.chat-input input{
+    width: 97%;
+    padding: 10px;
+    font-size: var(--font-s-2);
+    margin: 0;
+    color: var(--dark-blue);
+    margin-bottom: 2px;
+}
+.chat-input input:focus{
+outline: none;
+border: 1px solid var(--dark-yellow);
+}
+.chat-input button{
+width: 30%;
+font-size: var(--font-2-s);
+font-weight: var(--title-2-w);
+background-color: var(--dark-blue);
+color: #fff;
+border: none;
+cursor: pointer;
+transition: all .5s ease;
+}
+.chat-input button:hover{
+    background-color: var(--light-blue);
+}
+.chatbody{
+
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    overflow: scroll;
+}
+
+
+.message {
+
+  background: var(--dark-yellow);
+  color: #fff;
+  padding: 0.7rem;
+  border-radius: 1rem 1rem 1rem 0;
+  max-width: 28rem;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.message>span:nth-child(2){
+    font-size: 0.7rem;
+    align-self: end;
+}
+
+.own {
+  align-self: flex-end;
+  border-radius: 1rem 1rem 0 1rem;
+  background: var(--dark-blue);
+}

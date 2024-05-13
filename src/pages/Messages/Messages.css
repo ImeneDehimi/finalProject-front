@@ -3,47 +3,5 @@
 }
 .messages{
     display: flex;
-    height: 100vh;
-}
-.chat{
-    width: 70%;
-}
-.messagelist{
-    width: 30%;
-text-align: center; 
-}
-.messagelist
-.chat-box{
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-.messagelist h1{
-    margin: 10px 0;
-    color: var(--dark-blue);
-}
-.chat-box img{
-    width: 50px;
-    border-radius: 50%;
-}
-.chat-input{
-    position: fixed;
-    bottom: 0;
-    width: 70%;
-}
-.chat-input input{
-    width: 97%;
-    padding: 10px;
-    font-size: var(--font-s-2);
-    margin: 0;
-    color: var(--dark-blue);
-    margin-bottom: 2px;
-}
-.chat-input input:focus{
-outline: none;
-border: 1px solid var(--dark-yellow);
-}
-.chatchat{
-    padding: 20px;
+    height: 85vh;
 }

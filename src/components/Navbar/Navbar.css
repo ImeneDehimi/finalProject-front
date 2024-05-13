@@ -78,6 +78,7 @@
   margin-top: 1rem;
   padding: 0.5rem;
   transition: opacity 0.15s ease-out;
+  pointer-events: none; 
 }
 .dropdown-item {
   margin: 5px 0;

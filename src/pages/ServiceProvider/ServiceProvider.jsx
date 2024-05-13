@@ -24,6 +24,7 @@ const ServiceProvider = () => {
   const [images, setImages] = useState([]);
   const [comments, setcomments] = useState([])
   const [value, setValue] = useState()
+  const [rating, setRating] = useState(0)
 
   // carousel images responsiveness
 
@@ -57,6 +58,7 @@ const ServiceProvider = () => {
         setDays(res?.data?.businesshrs[0]?.day);
         setImages(res?.data?.images);
         setcomments(res?.data?.comments);
+        setRating(res?.data?.rating)
       })
       .catch((err) => console.log(err));
   }, []);
@@ -93,12 +95,25 @@ const [comment, setComment] = useState("")
 
 const handleComment = () =>{
   if (comment === "") return;
-  axios.put(`${import.meta.env.VITE_URL}/profile/comment/${Id}`,{text : comment,postedBy: logeduser})
+  axios.put(`${import.meta.env.VITE_URL}/profile/comment/${Id}`,{text : comment,postedBy: logeduser, rating:value})
   .then((res) => {
     console.log(res.data);
   })
   .catch((err) => console.log(err));
 }
+
+const createChat = () =>{
+  axios.post(`${import.meta.env.VITE_URL}/chat`,{
+    senderId: logeduser?._id,
+    receiverId: user?._id
+  })
+  .then((res)=>{console.log(res.data)
+    console.log(res.data);
+    navigate("/messages")
+  })
+  .catch((err)=>console.log(err.message))
+}
+
 
   return (
     <>
@@ -110,7 +125,7 @@ const handleComment = () =>{
           </div>
           <div className="service-provider-text">
             <Stack spacing={1}>
-              <Rating name="read-only" readOnly  defaultValue={2.5} precision={0.5} />
+              <Rating name="read-only" readOnly  value={rating} precision={0.5} />
             </Stack>
             <h3>{user?.username}</h3>
             <p>{profile?.category}</p>
@@ -118,7 +133,7 @@ const handleComment = () =>{
           </div>
         </div>
         <div className="service-provicer-btn">
-          <button onClick={()=>{isAuthenticated ? navigate("/messages") : navigate("/login")}}>message</button>
+          <button onClick={()=>{isAuthenticated ? createChat() : navigate("/login")}}>message</button>
         </div>
         <div className="service-provider-details">
           <h3>Description</h3>
@@ -190,7 +205,9 @@ const handleComment = () =>{
                   placeholder="Write your comment"
                   onChange={(e) => setComment(e.target.value)}
                 ></textarea>
-                <button onClick={handleComment} className="submitmodal">Submit</button>
+                <button onClick={()=>{handleComment()
+                  handleCloseModal()
+                }} className="submitmodal">Submit</button>
               </ReactModal>
             </div>
             {comments?.map((comment,index)=>(

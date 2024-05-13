@@ -5,13 +5,14 @@ import logo from "../../assets/logo2.webp";
 import avatar from "../../assets/avatar.webp";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { logout } from "../../redux/slices/authSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ProfileInfo from "../../components/ProfileInfo/ProfileInfo";
 import UpdateProfile from "../../components/UpdateProfile/UpdateProfile";
 import { AiFillMessage } from "react-icons/ai";
 import axios from "axios";
 
 const Profile = () => {
+  const user = useSelector((state) => state?.auth?.user?.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { ID } = useParams();
@@ -45,7 +46,7 @@ const Profile = () => {
             <Link to="/"><img src={logo} alt="" /></Link>
           </div>
           <div style={{ marginRight: "30px" }}>
-          <Link to="/messages"><AiFillMessage className="inbox-icon"/></Link>
+          <Link to={user ? "/messages" : "*"}><AiFillMessage className="inbox-icon"/></Link>
             <p id="username">{profile?.user?.username}</p>
             <Button
               id="basic-button"

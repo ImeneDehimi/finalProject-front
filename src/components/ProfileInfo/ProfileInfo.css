@@ -20,13 +20,14 @@
     width: 400px;
     border: 1px solid var(--grey);
 }
-.profile-info-box p{
+.profile-info-box p, .profile-info-box-img p{
     font-size: 18px;
     color: var(--dark-grey);
 }
-.profile-info-box span{
+.profile-info-box span,.profile-info-box-img span{
     font-weight: var(--title-1-w);
     color: var(--dark-blue);
+    margin: 10px;
 }
 .info-images{
     display: flex;
@@ -38,6 +39,13 @@
     width: 200px;
     margin: 5px;
 }
-.bottom-infos .profile-info-box{
-    width: 84%;
+.day, .hour{
+    color: var(--dark-grey);
+font-weight: 400;
+}
+.profile-info-box-img{
+    width: 840px;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid var(--grey);
 }

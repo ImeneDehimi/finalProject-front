@@ -4,6 +4,7 @@
   display: flex;
   gap: 20px;
   overflow-x: hidden;
+  position: relative;
 }
 .updateprofile form {
   display: flex;
@@ -47,7 +48,7 @@ float: right;
     cursor: pointer;
     color: var(--light-yellow);
 }
-.update-btn{
+.update-btn , .updateimages-btn{
     width: 200px;
     padding: 10px;
     margin-left: 10px;
@@ -60,9 +61,21 @@ float: right;
     cursor: pointer;
     transition:  all .3s ease-in-out;
 }
-.update-btn:hover{
+.update-btn:hover, .updateimages-btn:hover{
     color: var(--dark-blue);
     border: 1px solid var(--dark-blue);
     background-color: #fff;
 
+}
+.updatetime{
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+}
+.updateimages-btn{
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
 }

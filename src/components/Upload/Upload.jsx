@@ -82,7 +82,7 @@ const Upload = () => {
       profileImages.forEach((file)=>{
         formData.append("images",file)
       })
-      axios.put(`${import.meta.env.VITE_URL}/profile/${ID}`,formData)
+      axios.put(`${import.meta.env.VITE_URL}/profile/upload/${ID}`,formData)
       .then((res)=>{console.log(res.data)
         navigate(`/profile/${ID}`)
       })

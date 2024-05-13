@@ -40,11 +40,18 @@ const navigate = useNavigate()
         password,
 
       })
-      .then((res)=>{dispatch(login(res.data));
+      .then((res)=>{
+        dispatch(
+          login(res.data));
       localStorage.setItem("token", res.data.token);
     navigate("/")})
       .catch((err) => {
-        toast.error(err.message);
+        if(err.response){
+          if(err.response.status == 401)
+          toast.error("Invalid username or password")
+        }else{
+          toast.error("something went wrong");
+        }
       });
   };
 
@@ -87,12 +94,7 @@ const navigate = useNavigate()
             <></>
           )}
         </div>
-        <div className="remember-forgot">
-          <label>
-            <input type="checkbox" /> Remember me
-          </label>
-          <Link>forgot password</Link>
-        </div>
+        
         <button type="submit">Login</button>
         <div className="register-link">
           <p>

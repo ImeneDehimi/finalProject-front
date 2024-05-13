@@ -31,7 +31,7 @@ const Comment = ({comment}) => {
                     <Rating
                       name="read-only" 
                       readOnly
-                      defaultValue={2.5}
+                      value={comment?.rating}
                       precision={0.5}
                     />
                   </Stack>

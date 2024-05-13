@@ -1,0 +1,19 @@
+.messagelist{
+    width: 30%;
+text-align: center; 
+}
+.messagelist
+.chat-box{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.messagelist h1{
+    margin: 10px 0;
+    color: var(--dark-blue);
+}
+.chat-box img{
+    width: 50px;
+    border-radius: 50%;
+}

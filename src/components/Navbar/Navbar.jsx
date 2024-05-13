@@ -74,7 +74,7 @@ const Navbar = () => {
               </>
             ) : (
               <>
-                <Link to="/messages">
+                <Link to={user ? "/messages" : "*"}>
                   <AiFillMessage className="inbox-icon" />
                 </Link>
                

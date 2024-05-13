@@ -74,7 +74,7 @@ if(role == "user"){
     if(err.response.status == 400)
     toast.error("username or email exists")
   }else{
-    toast.error(err.message);
+    toast.error("something went wrong");
   }});
 }else if(role== "serviceProvider"){
   axios
@@ -90,7 +90,7 @@ if(role == "user"){
       if(err.response.status == 400)
       toast.error("username or email exists")
     }else{
-      toast.error(err.message);
+      toast.error("something went wrong");
     }
     });
 }
