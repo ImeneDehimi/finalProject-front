@@ -12,6 +12,7 @@ import ReactModal from "react-modal";
 import { useSelector } from "react-redux";
 
 const ServiceProvider = () => {
+  const [token, setToken] = useState(localStorage.getItem("token") || null);
   const isAuthenticated = useSelector((state) => state?.auth?.isAuthenticated);
   const logeduser = useSelector((state) => state?.auth?.user?.user);
 
@@ -106,6 +107,10 @@ const createChat = () =>{
   axios.post(`${import.meta.env.VITE_URL}/chat`,{
     senderId: logeduser?._id,
     receiverId: user?._id
+  },{
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
   })
   .then((res)=>{console.log(res.data)
     console.log(res.data);
