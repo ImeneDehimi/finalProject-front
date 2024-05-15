@@ -5,6 +5,7 @@ import axios from 'axios';
 
 const MessageBody = ({ chat, currentUser, setSendMessage,  receivedMessage }) => {
   const [token, setToken] = useState(localStorage.getItem('token') || null);
+  console.log(token);
 
   const [userData, setUserData] = useState(null);
   const [messages, setMessages] = useState([]);

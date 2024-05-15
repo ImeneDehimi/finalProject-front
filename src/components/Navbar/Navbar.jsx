@@ -37,7 +37,7 @@ const Navbar = () => {
               <AnchorLink href="#about">About</AnchorLink>
             </li>
             <li className="has-dropdown">
-              <AnchorLink href="#services">services</AnchorLink>
+              <AnchorLink href="#services">Services</AnchorLink>
               <ul className="dropdown">
                 <li className="dropdown-item">
                   <Link to="/electricians">electrician</Link>
