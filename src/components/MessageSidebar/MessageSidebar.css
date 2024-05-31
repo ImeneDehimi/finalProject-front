@@ -4,10 +4,11 @@ text-align: center;
 }
 .messagelist
 .chat-box{
-    padding: 20px;
+    margin: 20px;
     display: flex;
     align-items: center;
     gap: 20px;
+    cursor: pointer;
 }
 .messagelist h1{
     margin: 10px 0;

@@ -182,7 +182,7 @@ if(role == "user"){
         {errors.role ? (
           <span className="signin-error">
             <BiErrorCircle />
-            {errors.role?.message}
+            role is required
           </span>
         ) : (
           <></>

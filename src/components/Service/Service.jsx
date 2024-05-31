@@ -7,10 +7,8 @@ import { Link } from "react-router-dom";
 // eslint-disable-next-line react/prop-types
 const Service = ({profile}) => {
  // eslint-disable-next-line react/prop-types
- const {user, category, wilaya, _id} = profile
+ const {user, category, wilaya, _id, rating} = profile
 
- 
-console.log(profile);
   return (
     <>
       <div className="service-profile">
@@ -19,7 +17,7 @@ console.log(profile);
         </div>
         <div className="service-profile-text">
           <Stack spacing={1}>
-            <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
+          <Rating name="read-only" readOnly  value={rating} precision={0.5} />
           </Stack>
           <h3>{user?.username}</h3>
           <p>{category}</p>
